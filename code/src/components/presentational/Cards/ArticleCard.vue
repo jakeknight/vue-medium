@@ -10,9 +10,9 @@
           | {{ title }}
         .article-card__content__excerpt
           | {{ excerpt }}
-      .article-card__content__category
-        router-link(:to="{path: '/topic/' + category}")
-        | {{ category }}
+      .article-card__content__category(@click="setActiveTopic(topicLower)")
+        router-link(:to="{path: '/topic/' + topicLower}")
+          | {{ category }}
 </template>
 
 <script>
@@ -29,12 +29,16 @@ export default {
   },
   methods: {
     ...mapActions([
-      'setActiveArticle'
+      'setActiveArticle',
+      'setActiveTopic'
     ])
   },
   computed: {
     titleSlug () {
       return this.title.replace(/\s+/g, '-').toLowerCase()
+    },
+    topicLower () {
+      return this.category.toLowerCase()
     }
   }
 }

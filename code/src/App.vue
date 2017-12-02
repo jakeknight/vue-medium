@@ -1,7 +1,7 @@
 <template lang="pug">
   #app.container
     main-header()
-    main-navigation()
+    main-navigation(v-show="!isAdminPage")
     mobile-navigation()
     router-view
 </template>
@@ -17,7 +17,27 @@ export default {
     MainNavigation,
     MobileNavigation
   },
-  name: 'app'
+  name: 'app',
+  data () {
+    return {
+      isAdminPage: false
+    }
+  },
+  created () {
+    this.checkIfAdminPage()
+  },
+  watch: {
+    '$route': 'checkIfAdminPage'
+  },
+  methods: {
+    checkIfAdminPage () {
+      if (this.$router.currentRoute.path === '/admin') {
+        this.isAdminPage = true
+      } else {
+        this.isAdminPage = false
+      }
+    }
+  }
 }
 </script>
 
