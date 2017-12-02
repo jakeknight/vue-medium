@@ -1,7 +1,8 @@
 <template lang="pug">
   .main-header
-    .main-header__logo
-      logo()
+    router-link(to="/")
+      .main-header__logo
+        logo()
 </template>
 
 

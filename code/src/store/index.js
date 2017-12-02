@@ -12,7 +12,7 @@ Vue.use(Vuex)
 
 const store = () => {
   return new Vuex.Store({ // eslint-disable-line
-    plugins: [createPersistedState],
+    plugins: [createPersistedState({})],
     state,
     mutations,
     actions,

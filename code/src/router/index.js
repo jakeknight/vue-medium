@@ -7,6 +7,7 @@ Vue.use(Router)
 const AdminView = () => import('@/views/admin/Admin.vue')
 const IndexView = () => import('@/views/Index.vue')
 const TopicView = () => import('@/views/topic/Topic.vue')
+const NewArticleView = () => import('@/views/admin/NewArticle.vue')
 const DetailView = () => import('@/views/detail/Detail.vue')
 //
 
@@ -15,7 +16,7 @@ export default new Router({
   fallback: false,
   scrollBehavior: () => ({ y: 0 }),
   routes: [
-    { path: '/admin', component: AdminView },
+    { path: '/admin', component: AdminView, children: [{ path: 'new-article', component: NewArticleView }] },
     { path: '/', component: IndexView },
     { path: '/topic/:id', component: TopicView },
     { path: '/detail/:id', component: DetailView }

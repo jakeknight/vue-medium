@@ -3,6 +3,7 @@
     .list__item(v-for="item, index in data")
       list-item(
         :title="item.title"
+        :author="item.author"
         :key="index"
       )
 </template>
