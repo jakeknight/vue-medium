@@ -1,7 +1,6 @@
 
 export const setArticles = (state, articles) => {
   state.articles = articles
-  state.searchData = articles
 }
 
 export const setActiveTopic = (state, topic) => {
@@ -21,7 +20,11 @@ export const setTopicData = (state) => {
 }
 
 export const searchArticles = (state, searchQuery) => {
-  console.log(searchQuery)
+  const searchData = state.articles.filter((obj) => {
+    return obj.title.includes(searchQuery)
+  })
+  console.log(searchData)
+  state.searchData = searchData
 }
 
 export const updateNewPostData = (state, value) => {

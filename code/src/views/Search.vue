@@ -29,5 +29,12 @@ export default {
 </script>
 
 <style lang="scss">
+  .search {
+    &__input {
+      padding-bottom: 30px;
+    }
+    &__articles {
 
+    }
+  }
 </style>

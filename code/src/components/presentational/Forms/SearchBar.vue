@@ -2,7 +2,7 @@
   .search-bar
     input(
       type="text"
-      v-on:enter="searchArticles(searchQuery)"
+      @keyup.enter="searchArticles(searchQuery)"
       v-model="searchQuery"
       placeholder="Search..."
     )
@@ -13,15 +13,20 @@
 import { mapActions } from 'vuex'
 export default {
   name: 'search-bar',
-  data () {
-    return {
-      searchQuery: ''
-    }
-  },
   methods: {
     ...mapActions([
       'searchArticles'
     ])
+  },
+  computed: {
+    searchQuery: {
+      get () {
+        return this.$store.state.searchQuery
+      },
+      set (value) {
+        this.$store.commit('searchArticles', value)
+      }
+    }
   }
 }
 </script>

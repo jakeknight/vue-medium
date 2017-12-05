@@ -21,7 +21,6 @@ export const setActiveArticle = ({commit, state}, id) => {
 }
 
 export const searchArticles = ({commit}, searchQuery) => {
-  console.log(searchQuery)
   commit('searchArticles', searchQuery)
 }
 
