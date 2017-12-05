@@ -20,6 +20,11 @@ export const setActiveArticle = ({commit, state}, id) => {
     })
 }
 
+export const searchArticles = ({commit}, searchQuery) => {
+  console.log(searchQuery)
+  commit('searchArticles', searchQuery)
+}
+
 export const setActiveTopic = ({commit}, topic) => {
   commit('setActiveTopic', topic)
 }

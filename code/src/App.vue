@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     checkIfAdminPage () {
-      if (this.$router.currentRoute.path === '/admin') {
+      if (this.$router.currentRoute.path === '/admin' || this.$router.currentRoute.path === '/admin/new-article') {
         this.isAdminPage = true
       } else {
         this.isAdminPage = false

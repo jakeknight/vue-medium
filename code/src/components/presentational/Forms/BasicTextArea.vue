@@ -1,36 +1,37 @@
 <template lang="pug">
-  .basic-input
-    .basic-input__label
+  .basic-text-area
+    .basic-text-area__label
       label() {{ label }}
-    .basic-input__field
-      input(
-        type="text"
-        )
+    .basic-text-area__field
+      textarea(
+        :cols="cols"
+        :rows="rows"
+      )
 </template>
 
 <script>
 export default {
-  name: 'basic-input',
+  name: 'basic-text-area',
   props: {
-    name: String,
     label: String,
-    vModel: String
+    vModel: String,
+    cols: String,
+    rows: String
   }
 }
 </script>
 
 <style lang="scss">
-  .basic-input {
+  .basic-text-area {
     display: flex;
     flex-direction: row;
-    flex-wrap: row;
-    align-items: center;
+
     &__label {
       padding-right: 20px;
     }
     &__field {
       width: 100%;
-      input {
+      textarea {
         width: 100%;
         padding: 6px 0px 6px 0px;
         border-radius: 2px;

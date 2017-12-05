@@ -12,6 +12,7 @@
         list(
           :data="articles"
         )
+
 </template>
 
 <script>

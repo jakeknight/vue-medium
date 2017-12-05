@@ -6,10 +6,10 @@
 <script>
 
 export default {
+  name: 'main-title',
   props: {
     title: String
-  },
-  name: 'main-title'
+  }
 }
 </script>
 

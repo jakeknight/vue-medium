@@ -6,5 +6,14 @@ export default {
   },
   activeArticleData: {
     'article': []
-  }
+  },
+  newPostData: {
+    title: '',
+    author: '',
+    dateAdded: Date.now(),
+    category: '',
+    imgSrc: '',
+    content: ''
+  },
+  searchData: []
 }

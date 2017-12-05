@@ -1,6 +1,7 @@
 
 export const setArticles = (state, articles) => {
   state.articles = articles
+  state.searchData = articles
 }
 
 export const setActiveTopic = (state, topic) => {
@@ -17,4 +18,12 @@ export const setTopicData = (state) => {
     return obj.category.toLowerCase() === state.activeTopicData.topic.toLowerCase()
   })
   state.activeTopicData.articles.push(...topicData)
+}
+
+export const searchArticles = (state, searchQuery) => {
+  console.log(searchQuery)
+}
+
+export const updateNewPostData = (state, value) => {
+  state.newPostData = value
 }
