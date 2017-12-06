@@ -30,6 +30,10 @@ export const deleteArticle = ({commit, state}, id) => {
     })
 }
 
+export const authModal = ({commit}) => {
+  commit('authModal')
+}
+
 export const searchArticles = ({commit}, searchQuery) => {
   commit('searchArticles', searchQuery)
 }

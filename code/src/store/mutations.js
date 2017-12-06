@@ -11,6 +11,10 @@ export const setArticle = (state, article) => {
   state.activeArticleData.article = article
 }
 
+export const authModal = (state) => {
+  state.authModalActive === false ? state.authModalActive = true : state.authModalActive = false
+}
+
 export const setTopicData = (state) => {
   state.activeTopicData.articles = []
   const topicData = state.articles.filter((obj) => {

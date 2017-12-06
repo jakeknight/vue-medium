@@ -1,9 +1,13 @@
 <template lang="pug">
   .login-form
     .login-form__username
-      basic-input()
+      basic-input(
+        placeholder="email"
+      )
     .login-form__password
-      basic-input()
+      basic-input(
+        placeholder="password"
+      )
 </template>
 
 <script>
@@ -17,11 +21,9 @@ export default {
 
 <style lang="scss">
   .login-form {
-    background-color: grey;
-    padding: 20px;
-    border-radius: 5px;
+    width: 40%;
     &__username {
-
+      padding-bottom: 20px;
     }
     &__password {
 

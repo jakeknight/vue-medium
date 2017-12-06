@@ -4,7 +4,8 @@
       label() {{ label }}
     .basic-input__field
       input(
-        type="text"
+        :type="placeholder === 'password' ? 'password' : 'text'"
+        :placeholder="placeholder"
         )
 </template>
 
@@ -14,7 +15,8 @@ export default {
   props: {
     name: String,
     label: String,
-    vModel: String
+    vModel: String,
+    placeholder: String
   },
   data () {
     return {
@@ -22,7 +24,7 @@ export default {
     }
   },
   mounted () {
-    this.label.length === 0 ? this.hideLabel = true : this.hideLabel = false
+    this.label ? this.hideLabel = true : this.hideLabel = false
   }
 }
 </script>
@@ -40,8 +42,8 @@ export default {
       width: 100%;
       input {
         width: 100%;
-        padding: 6px 0px 6px 0px;
-        border-radius: 2px;
+        padding: 10px 0px 10px 0px;
+        border-radius: 3px;
         box-shadow: none;
         font-size: 14px;
         background-color: #fff;

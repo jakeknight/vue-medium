@@ -1,6 +1,6 @@
 <template lang="pug">
   .main-header
-    router-link(to="/login").main-header__users
+    .main-header__users(@click="authModal")
       span Login / Sign-up
     router-link(to="/").main-header__logo
       logo()
@@ -10,12 +10,18 @@
 
 
 <script>
+import { mapActions } from 'vuex'
 import Logo from '../Logo/Logo.vue'
 
 export default {
   name: 'header',
   components: {
     Logo
+  },
+  methods: {
+    ...mapActions([
+      'authModal'
+    ])
   }
 }
 </script>
@@ -37,7 +43,7 @@ export default {
       display: flex;
       justify-content: flex-start;
       span {
-        font-size: 12px;
+        font-size: 14px;
         color: #ff5252;
         cursor: pointer;
       }
@@ -52,7 +58,7 @@ export default {
       display: flex;
       justify-content: flex-end;
       span {
-        font-size: 12px;
+        font-size: 14px;
         color: #ff5252;
         cursor: pointer;
       }

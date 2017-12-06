@@ -3,19 +3,24 @@
     main-header()
     main-navigation(v-show="!isAdminPage")
     mobile-navigation()
+    auth-modal(v-show="authModalActive")
     router-view
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import MainHeader from './components/presentational/Header/Header.vue'
 import MainNavigation from './components/presentational/Navigation/Navigation.vue'
 import MobileNavigation from './components/presentational/Navigation/MobileNavigation.vue'
+import AuthModal from './components/presentational/Modals/AuthModal.vue'
 
 export default {
   components: {
     MainHeader,
     MainNavigation,
-    MobileNavigation
+    MobileNavigation,
+    AuthModal
   },
   name: 'app',
   data () {
@@ -37,6 +42,11 @@ export default {
         this.isAdminPage = false
       }
     }
+  },
+  computed: {
+    ...mapState([
+      'authModalActive'
+    ])
   }
 }
 </script>

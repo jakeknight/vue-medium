@@ -4,6 +4,7 @@ export default {
     'topic': '',
     'articles': []
   },
+  authModalActive: false,
   activeArticleData: {
     'article': []
   },
