@@ -24,7 +24,13 @@ a {
 }
 
 .container {
-  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  @media screen and (min-width: 780px) {
+    margin: 0 auto;
+  }
 }
 
 .no-gutters {

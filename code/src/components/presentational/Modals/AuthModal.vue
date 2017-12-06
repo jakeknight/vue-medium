@@ -1,6 +1,7 @@
 <template lang="pug">
-  .auth-modal
-    .auth-modal__content
+  .auth-modal()
+    .auth-modal__content()
+      span.auth-modal__close(@click="authModal") Close
       .auth-modal__title(
         v-html="isSignUp === true ? '<h1>Sign-up.</h1>' : '<h1>Sign-in.</h1>'"
       )
@@ -9,6 +10,10 @@
       )
         span Are you new to Jakeium?
         span.auth-modal__text__sign-up(@click="signUp") &nbsp;Sign up.
+      .auth-modal__back(
+        v-show="isSignUp"
+      )
+        span.auth-modal__back__text(@click="signUp") Back
       .auth-modal__options(v-show="!isSignUp")
         .auth-modal__options__google(@click="googleAuth")
           auth-button(
@@ -27,7 +32,11 @@
           auth-button(
             text="Sign in with email"
           )
-      .auth-modal__sign-up(v-show="isSignUp")
+      form.auth-modal__sign-up(v-show="isSignUp")
+        .auth-modal__sign-up__display-name
+          basic-input(
+            placeholder="Name"
+          )
         .auth-modal__sign-up__email
           basic-input(
             placeholder="Email"
@@ -36,13 +45,20 @@
           basic-input(
             placeholder="Password"
           )
-
+        .auth-modal__sign-up__submit
+          basic-button(
+            color="green"
+            text="Submit"
+          )
 </template>
 
 <script>
-import AuthButton from '../Buttons/AuthButton.vue'
+import { mapActions } from 'vuex'
 import AuthService from '../../../auth/auth-service'
+
+import AuthButton from '../Buttons/AuthButton.vue'
 import BasicInput from '../Forms/BasicInput.vue'
+import BasicButton from '../Buttons/BasicButton.vue'
 
 const auth = new AuthService()
 const { googleAuth, facebookAuth } = auth
@@ -56,14 +72,18 @@ export default {
   },
   components: {
     AuthButton,
+    BasicButton,
     BasicInput
   },
   methods: {
     googleAuth,
     facebookAuth,
     signUp () {
-      this.isSignUp = true
-    }
+      this.isSignUp === false ? this.isSignUp = true : this.isSignUp = false
+    },
+    ...mapActions([
+      'authModal'
+    ])
   }
 }
 </script>
@@ -82,6 +102,16 @@ export default {
   z-index: 100;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.65);
+  &__close {
+    cursor: pointer;
+  }
+  &__back {
+    width: 250px;
+    cursor: pointer;
+    font-size: 14px;
+    color: red;
+    opacity: 0.7;
+  }
   &__content {
     background-color: #ECECEC;
     width: 350px;
@@ -118,10 +148,17 @@ export default {
   &__sign-up {
     padding-top: 30px;
     width: 250px;
+    &__display-name {
+      padding-bottom: 10px;
+    }
     &__email {
       padding-bottom: 10px;
     }
     &__password {}
+    &__submit {
+      display: flex;
+      justify-content: center;
+    }
   }
 }
 </style>

@@ -24,7 +24,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    height: 80px;
     @media screen and (min-width: 780px) {
       display: none;
     }

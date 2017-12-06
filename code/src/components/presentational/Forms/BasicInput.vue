@@ -43,7 +43,7 @@ export default {
       input {
         width: 100%;
         padding: 10px 0px 10px 0px;
-        border-radius: 3px;
+        border-radius: 7px;
         box-shadow: none;
         font-size: 14px;
         background-color: #fff;
