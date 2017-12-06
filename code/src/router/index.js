@@ -6,6 +6,7 @@ Vue.use(Router)
 // Route code splitting
 const AdminView = () => import('@/views/admin/Admin.vue')
 const IndexView = () => import('@/views/Index.vue')
+const LoginView = () => import('@/views/Login.vue')
 const TopicView = () => import('@/views/topic/Topic.vue')
 const NewArticleView = () => import('@/views/admin/NewArticle.vue')
 const DetailView = () => import('@/views/detail/Detail.vue')
@@ -19,6 +20,7 @@ export default new Router({
   routes: [
     { path: '/admin', component: AdminView },
     { path: '/admin/new-article', component: NewArticleView },
+    { path: '/login', component: LoginView },
     { path: '/', component: IndexView },
     { path: '/topic/:id', component: TopicView },
     { path: '/detail/:id', component: DetailView },

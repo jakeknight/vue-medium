@@ -1,6 +1,6 @@
 <template lang="pug">
   .basic-input
-    .basic-input__label
+    .basic-input__label(v-show="hideLabel")
       label() {{ label }}
     .basic-input__field
       input(
@@ -15,6 +15,14 @@ export default {
     name: String,
     label: String,
     vModel: String
+  },
+  data () {
+    return {
+      hideLabel: false
+    }
+  },
+  mounted () {
+    this.label.length === 0 ? this.hideLabel = true : this.hideLabel = false
   }
 }
 </script>

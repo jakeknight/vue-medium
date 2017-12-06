@@ -1,6 +1,6 @@
 <template lang="pug">
   .main-header
-    .main-header__users
+    router-link(to="/login").main-header__users
       span Login / Sign-up
     router-link(to="/").main-header__logo
       logo()

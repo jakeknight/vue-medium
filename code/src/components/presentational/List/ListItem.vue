@@ -4,16 +4,24 @@
       span.list-item__detail__title {{ title }}
       span.list-item__detail__author Author: {{ author }}
     .list-item__actions
-      span.list-item__actions__delete DELETE
-      span.list-item__actions__edit EDIT
+      span.list-item__actions__delete(@click="deleteArticle(id)") DELETE
+      span.list-item__actions__edit(@click="editItem(id)") EDIT
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'list-item',
   props: {
     title: String,
-    author: String
+    author: String,
+    id: String
+  },
+  methods: {
+    ...mapActions([
+      'editArticle',
+      'deleteArticle'
+    ])
   }
 }
 </script>

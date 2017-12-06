@@ -4,6 +4,7 @@
       list-item(
         :title="item.title"
         :author="item.author"
+        :id="item._id"
         :key="index"
       )
 </template>

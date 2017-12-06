@@ -27,9 +27,7 @@ export default {
     BasicButton
   },
   created () {
-    if (this.articles.length === 0) {
-      this.getArticles()
-    }
+    this.getArticles()
   },
   methods: {
     ...mapActions([

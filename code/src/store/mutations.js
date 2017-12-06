@@ -23,10 +23,16 @@ export const searchArticles = (state, searchQuery) => {
   const searchData = state.articles.filter((obj) => {
     return obj.title.includes(searchQuery)
   })
-  console.log(searchData)
   state.searchData = searchData
 }
 
 export const updateNewPostData = (state, value) => {
   state.newPostData = value
+}
+
+export const deleteArticle = (state, id) => {
+  const index = state.articles.findIndex((obj) => {
+    return obj._id === id
+  })
+  state.articles.splice(index, 1)
 }

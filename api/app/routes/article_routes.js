@@ -24,9 +24,20 @@ module.exports = function(app, db) {
         })
     });
 
+    app.get('/article/delete/:id', (req, res) => {
+        const id = new ObjectId(req.params.id)
+        db.collection('posts').deleteOne({'_id': id}, function(err, obj) {
+            if (err) {
+                res.send({ 'error': 'An error has occured'});
+                console.log(err)
+            } else {
+                res.send('Article was deleted');
+            }
+        })
+    });
+
     app.post('/articles', (req, res) => {
         const article = { 
-            id: req.body.id,
             title: req.body.title,
             dateAdded: Date.now(),
             excerpt: req.body.excerpt,
